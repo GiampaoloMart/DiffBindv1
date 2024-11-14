@@ -28,13 +28,10 @@ RUN R -e "install.packages('BiocManager')"
 # Installa il pacchetto ChIPseeker da Bioconductor
 RUN R -e "BiocManager::install('ChIPseeker')"
 
-# Installa plotly per l'uso di orca
+# Installa il pacchetto plotly da CRAN (versione stabile)
 RUN R -e "install.packages('plotly')"
 
-# Installa orca utilizzando il pacchetto orca (con pacchetto plotly)
-RUN R -e "devtools::install_github('ropensci/plotly')"
-
-# Installa pacchetti aggiuntivi richiesti, come 'orca' per la gestione delle immagini
+# Installa orca (eseguibile necessario per il rendering delle immagini di plotly)
 RUN R -e "install.packages('orca')"
 
 # Crea un utente per l'accesso a RStudio
